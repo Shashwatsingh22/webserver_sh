@@ -22,8 +22,8 @@
 
 - name: Restarting the httpd service which is not good I will fix in future
   service:
-    name: "httpd"
-    state: restarted
+    name:    "httpd"
+    state:   restarted
     enabled: yes
 
 - name: Allowing firewall on given port no 
