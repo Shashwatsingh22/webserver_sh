@@ -1,27 +1,33 @@
 ---
 # tasks file for webserver_sh
-- package:
+- name : Installing the httpd ...
+  package:
     name: "httpd"
     state: present
 
-- file:
+- name : Creating an Conf Folder ...
+  file:
     state: directory
     path: "/var/www/{{ conf_fold }}"
 
-- template:
+- name : Copying an Customize Configuration File ...
+  template:
     dest: "/etc/httpd/conf.d/{{ conf_filename }}.conf"
     src: "{{ conf_filename }}.conf"
 
-- copy:
+- name : Giving Content to html file on the fly ...
+  copy:
     dest: "/var/www/{{ conf_fold }}/index.html"
     content: "{{ web_content }}"
 
-- service:
+- name : Restarting the httpd service which is not good I will fix in future..
+  service:
     name: "httpd"
     state: restarted
     enabled: yes
 
-- firewalld:
+- name : allowing firewall on given port no 
+  firewalld:
     port: "{{ port_no }}"
     state: enabled
     immediate: yes
