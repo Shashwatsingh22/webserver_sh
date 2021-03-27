@@ -1,7 +1,7 @@
 galaxy_info:
   role_name: webserver_sh
   author: shashwat singh
-  description: it will configure the Yum repo as well as the httpd server.
+  description: it will configure the Yum repo as well as the httpd server
   company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
