@@ -1,0 +1,13 @@
+---
+# vars file for webserver_sh
+mount_dir_name: "mydvd"
+
+yum_desc: "Repo"
+
+port_no: "80"
+
+conf_filename: "new"
+
+web_content: "Hii Made By Role !!"
+
+conf_fold: "conf_fold"
