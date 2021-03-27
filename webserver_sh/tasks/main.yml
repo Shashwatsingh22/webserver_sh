@@ -1,0 +1,27 @@
+---
+# tasks file for webserver_sh
+- package:
+    name: "httpd"
+    state: present
+
+- file:
+    state: directory
+    path: "/var/www/{{conf_fold}}"
+
+- template:
+    dest: "/etc/httpd/conf.d/{{conf_filename}}.conf"
+    src: "{{conf_filename}}.conf"
+
+- copy:
+    dest: "/var/www/{{conf_fold}}/index.html"
+    content: "{{web_content}}"
+
+- service:
+    name: "httpd"
+    state: restarted
+    enabled: yes
+
+- firewalld:
+    port: "{{port_no}}"
+    state: enabled
+    immediate: yes
